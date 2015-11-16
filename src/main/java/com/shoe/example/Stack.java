@@ -1,9 +1,7 @@
-package com.rackspace.example.stack;
+package com.shoe.example;
 
-import java.util.Stack;
-
-public class RackStack {
-    private Stack stack = new Stack();
+public class Stack {
+    private java.util.Stack<Object> stack = new java.util.Stack<Object>();
     
     public void push(Object o) {
         stack.push(o);

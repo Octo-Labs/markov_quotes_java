@@ -1,15 +1,14 @@
-package com.rackspace.example.stack;
+package com.shoe.example;
 
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
-import cucumber.annotation.en.Given;
-import cucumber.annotation.en.Then;
-import cucumber.annotation.en.When;
-
-import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class StackStepDefs {
-
-    private RackStack myStack;
+    private Stack myStack;
     private Object pushed;
     private Object popped;
 
@@ -25,23 +24,22 @@ public class StackStepDefs {
     }
 
     @Given("^an empty stack$")
-    public void an_empty_stack() {
-        myStack = new RackStack();
+    public void an_empty_stack() throws Throwable {
+        myStack = new Stack();
     }
-
     @Then("^I get the same item back$")
     public void I_get_the_same_item_back() {
-        assertEquals(pushed, popped);
+        assertThat(pushed, is(popped));
     }
 
     @Then("^the stack contains one item$")
     public void the_stack_contains_one_item() {
-        assertEquals(1, myStack.size());
+        assertThat(myStack.size(), is(1));
     }
 
     @Then("^the stack contains two items$")
     public void the_stack_contains_two_items() {
-        assertEquals(2, myStack.size());
+        assertThat(myStack.size(), is(2));
     }
 
     @When("^I push an item into the stack$")
