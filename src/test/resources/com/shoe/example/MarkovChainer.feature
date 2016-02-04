@@ -7,3 +7,8 @@ Feature: Markov Chainer
 Scenario: Accept a sentence for training
   Given a MarkovChainer
   Then it should be trainable
+
+Scenario: Regurgitating a sentence
+  Given a MarkovChainer
+  When I train it with "Heloooo!"
+  Then it should gnerate "Heloooo!"
