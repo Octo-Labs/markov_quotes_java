@@ -10,5 +10,12 @@ Scenario: Accept a sentence for training
 
 Scenario: Regurgitating a sentence
   Given a MarkovChainer
-  When I train it with "Heloooo!"
-  Then it should gnerate "Heloooo!"
+  When I train it with "Heloooo there!"
+  Then it should generate "Heloooo there!"
+
+Scenario: Mixing two sentences
+  Given a MarkovChainer
+  When I train it with "Ryan brews JAVA"
+  When I train it with "Jeremy brews beer"
+  And call generate 20 times
+  Then it should generate "Ryan brews beer" at least once
