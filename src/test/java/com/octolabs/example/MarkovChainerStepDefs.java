@@ -1,4 +1,4 @@
-package com.shoe.example;
+package com.octolabs.example;
 
 import java.util.Hashtable;
 

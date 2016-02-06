@@ -1,4 +1,4 @@
-package com.shoe.example;
+package com.octolabs.example;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
