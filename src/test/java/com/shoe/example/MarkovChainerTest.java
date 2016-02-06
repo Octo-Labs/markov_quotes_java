@@ -8,5 +8,5 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = { "pretty", "html:target/cucumber"}
 )
-public class StackTest {
+public class MarkovChainerTest {
 }
