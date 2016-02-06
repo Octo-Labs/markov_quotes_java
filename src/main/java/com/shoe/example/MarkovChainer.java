@@ -23,13 +23,10 @@ public class MarkovChainer {
     String[] swords = sentence.split(" ");
     Word previousWord = null;
     for(int i = swords.length -1; i>=0; i--){
-      System.out.println("dealing with word: " + swords[i]);
       Word word = words.get(swords[i]);
       if(word != null){
-        System.out.println("we had the word");
         word.addNextWord(previousWord);
       }else{
-        System.out.println("we didn't have the word");
         word = new Word(swords[i],previousWord);
         words.put(swords[i],word);
       }
@@ -47,8 +44,6 @@ public class MarkovChainer {
       word = word.nextWord();
     }
     String sentence = words.toString();
-    System.out.println("*************");
-    System.out.println(sentence);
     return sentence;
   }
 
@@ -68,11 +63,9 @@ public class MarkovChainer {
 
     public Word nextWord(){
       if(nextWords.size() > 0){
-        System.out.println("we have a next word");
         Collections.shuffle(nextWords);
         return nextWords.get(0);
       }else{
-        System.out.print("We do not have a next word");
         return null;
       }
     }

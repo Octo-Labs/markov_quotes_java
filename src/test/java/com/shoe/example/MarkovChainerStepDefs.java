@@ -39,7 +39,6 @@ public class MarkovChainerStepDefs {
   @When("^call generate (\\d+) times$")
   public void call_generate_times(int arg1) throws Throwable {
     for(int i=1; i<arg1; i++){
-      System.out.print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
       String sentence = myChainer.generate();
       Integer score = results.get(sentence);
       if(score == null){
@@ -47,8 +46,6 @@ public class MarkovChainerStepDefs {
       }
       score++;
       results.put(sentence,score);
-      System.out.println(sentence);
-      System.out.println(score);
     }
   }
 
@@ -58,8 +55,6 @@ public class MarkovChainerStepDefs {
     if(score == null){
         score = 0;
     }
-    System.out.println("Score for: " + arg1);
-    System.out.println(score);
     boolean greaterThanZero = score > 0;
     assertThat("greaterThanZero",greaterThanZero);
   }
