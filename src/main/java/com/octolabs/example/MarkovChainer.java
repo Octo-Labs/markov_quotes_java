@@ -9,7 +9,7 @@ import java.util.StringJoiner;
 
 public class MarkovChainer {
 
-  private String sentence;
+  //private String sentence;
   private ArrayList<Word> beginnings;
   private Hashtable<String,Word> words;
 
@@ -19,8 +19,7 @@ public class MarkovChainer {
   }
 
   public void train(String s) {
-    sentence = s;
-    String[] swords = sentence.split(" ");
+    String[] swords = s.split(" ");
     Word previousWord = null;
     for(int i = swords.length -1; i>=0; i--){
       Word word = words.get(swords[i]);
@@ -46,6 +45,7 @@ public class MarkovChainer {
     String sentence = words.toString();
     return sentence;
   }
+
 
   private class Word {
     private ArrayList<Word> nextWords;
@@ -74,6 +74,7 @@ public class MarkovChainer {
       return word;
     }
   }
+
 }
 
 
